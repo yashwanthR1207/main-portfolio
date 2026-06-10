@@ -3,236 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashwanth R | IoT & Embedded Systems Engineer</title>
-    <!-- Fonts -->
+    <meta name="description" content="Yashwanth R - Electrical and Electronics Engineering student focused on IoT, embedded systems, robotics, and practical hardware-software products.">
+    <title>Yashwanth R | IoT & Embedded Systems Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="midnight-cyber">
-    <!-- Custom Cursor -->
-    <div id="custom-cursor"></div>
-    <div id="cursor-glow"></div>
-
-    <!-- 3D Canvas Background -->
-    <canvas id="three-canvas"></canvas>
-
-    <!-- Navigation -->
-    <nav id="main-nav">
+<body>
+    <nav id="main-nav" aria-label="Primary navigation">
         <div class="nav-container">
-            <a href="#" class="logo">YR<span>.</span></a>
+            <a href="#hero" class="logo" aria-label="Yashwanth R home">YR</a>
             <div class="nav-links">
-                <a href="#about" class="nav-item">About</a>
-                <a href="#skills" class="nav-item">Skills</a>
-                <a href="#projects" class="nav-item">Projects</a>
-                <a href="#contact" class="nav-item">Contact</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="nav-toggle">
-                <span></span>
-            </div>
+            <a class="nav-cta" href="mailto:vvce25eee0016@vvce.ac.in">Hire Me</a>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <span class="badge" data-gsap="fade-up">Available for Internships</span>
-                    <h1 data-gsap="reveal-text">Designing the <span class="accent">Future</span> of Connected Systems</h1>
-                    <p class="hero-description" data-gsap="fade-up" data-delay="0.2">
-                        I am <span class="highlight">Yashwanth R</span>, an IoT & Embedded Systems Engineer dedicated to bridging the gap between hardware precision and software intelligence.
+        <section id="hero" class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Electrical & Electronics Engineering Student</p>
+                    <h1>Yashwanth R builds practical IoT and embedded systems.</h1>
+                    <p class="hero-description">
+                        Focused on microcontrollers, sensor integration, cloud-connected dashboards,
+                        robotics, and reliable hardware-software solutions for real-world use.
                     </p>
-                    <div class="hero-actions" data-gsap="fade-up" data-delay="0.4">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            View Projects
+                        </a>
+                        <a href="mailto:vvce25eee0016@vvce.ac.in" class="btn btn-secondary">
+                            <i class="fa-solid fa-envelope"></i>
+                            Contact
+                        </a>
+                    </div>
+                    <div class="hero-metrics" aria-label="Portfolio highlights">
+                        <div>
+                            <strong>8.0</strong>
+                            <span>CGPA</span>
+                        </div>
+                        <div>
+                            <strong>5+</strong>
+                            <span>Projects</span>
+                        </div>
+                        <div>
+                            <strong>10+</strong>
+                            <span>Certifications</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span>Scroll Down</span>
+                <aside class="profile-panel" aria-label="Yashwanth R profile summary">
+                    <div class="profile-image-wrap">
+                        <img src="assets/profile.jpg" alt="Portrait of Yashwanth R" class="profile-image">
+                    </div>
+                    <div class="profile-card">
+                        <p class="availability"><span></span> Available for internships</p>
+                        <h2>IoT & Embedded Systems</h2>
+                        <p>VVCE, Mysuru | B.E. Electrical & Electronics Engineering</p>
+                    </div>
+                </aside>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="section">
-            <div class="container">
-                <div class="section-header" data-gsap="fade-up">
-                    <span class="section-tag">01. Background</span>
-                    <h2 class="section-title">The <span class="accent">Digital</span> Architect</h2>
+            <div class="container split-layout">
+                <div class="section-heading">
+                    <p class="section-kicker">About</p>
+                    <h2>Engineering student with a product-first mindset.</h2>
                 </div>
-                <div class="about-grid">
-                    <div class="about-content" data-gsap="fade-right">
-                        <p>
-                            Currently pursuing B.E. in Electrical & Electronics Engineering at VVCE, Mysuru. I specialize in building practical, end-to-end IoT solutions that solve real-world problems.
-                        </p>
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">8.0</span>
-                                <span class="stat-label">CGPA</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Projects</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">10+</span>
-                                <span class="stat-label">Certs</span>
-                            </div>
+                <div class="content-stack">
+                    <p>
+                        I am currently pursuing B.E. in Electrical & Electronics Engineering at
+                        Vidya Vikas Institute of Engineering & Technology, Mysuru. My work centers
+                        on turning hardware ideas into complete working systems using embedded C,
+                        ESP32, Arduino, Raspberry Pi, MQTT, sensors, and dashboard tools.
+                    </p>
+                    <div class="info-grid">
+                        <div>
+                            <span>Current Focus</span>
+                            <strong>IoT, robotics, embedded systems</strong>
                         </div>
-                    </div>
-                    <div class="about-visual" data-gsap="fade-left">
-                        <div class="glass-card profile-card">
-                            <div class="profile-img-placeholder">
-                                <i class="fa-solid fa-microchip"></i>
-                            </div>
-                            <div class="profile-details">
-                                <h3>Yashwanth R</h3>
-                                <p>// Embedded Systems specialist</p>
-                            </div>
+                        <div>
+                            <span>Education</span>
+                            <strong>B.E. EEE, VVCE Mysuru</strong>
+                        </div>
+                        <div>
+                            <span>Languages</span>
+                            <strong>English, Kannada, Hindi, Japanese</strong>
+                        </div>
+                        <div>
+                            <span>Leadership</span>
+                            <strong>Robotics Club, IEEE activities</strong>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section">
+        <section id="skills" class="section section-alt">
             <div class="container">
-                <div class="section-header" data-gsap="fade-up">
-                    <span class="section-tag">02. Expertise</span>
-                    <h2 class="section-title">Technical <span class="accent">Stack</span></h2>
+                <div class="section-heading centered">
+                    <p class="section-kicker">Technical Stack</p>
+                    <h2>Tools and skills for connected hardware.</h2>
                 </div>
                 <div class="skills-grid">
-                    <div class="skill-category glass-card" data-gsap="fade-up">
-                        <div class="category-icon"><i class="fa-solid fa-code"></i></div>
-                        <h3>Embedded Software</h3>
-                        <ul class="skill-list">
-                            <li>Embedded C / C++</li>
-                            <li>Python Automation</li>
-                            <li>MATLAB</li>
-                            <li>RTOS Basics</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category glass-card" data-gsap="fade-up" data-delay="0.1">
-                        <div class="category-icon"><i class="fa-solid fa-bolt"></i></div>
-                        <h3>Hardware Design</h3>
-                        <ul class="skill-list">
-                            <li>PCB Design (KiCad/EasyEDA)</li>
-                            <li>Circuit Analysis</li>
-                            <li>Microcontrollers (ESP32, STM32)</li>
-                            <li>Arduino / Raspberry Pi</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category glass-card" data-gsap="fade-up" data-delay="0.2">
-                        <div class="category-icon"><i class="fa-solid fa-cloud"></i></div>
-                        <h3>IoT & Protocols</h3>
-                        <ul class="skill-list">
-                            <li>MQTT / HTTP / CoAP</li>
-                            <li>Sensor Integration</li>
-                            <li>AWS IoT Core</li>
-                            <li>Node-RED Dashboards</li>
-                        </ul>
-                    </div>
+                    <article class="skill-card">
+                        <i class="fa-solid fa-microchip"></i>
+                        <h3>Embedded & Hardware</h3>
+                        <p>Embedded C/C++, PCB basics, circuit analysis, Arduino, ESP32, Raspberry Pi.</p>
+                    </article>
+                    <article class="skill-card">
+                        <i class="fa-solid fa-wifi"></i>
+                        <h3>IoT Systems</h3>
+                        <p>MQTT, HTTP, sensor integration, cloud basics, device-to-dashboard workflows.</p>
+                    </article>
+                    <article class="skill-card">
+                        <i class="fa-solid fa-code"></i>
+                        <h3>Programming</h3>
+                        <p>Python automation, MATLAB basics, robotics control, data handling foundations.</p>
+                    </article>
+                    <article class="skill-card">
+                        <i class="fa-solid fa-people-group"></i>
+                        <h3>Execution</h3>
+                        <p>Team projects, workshop leadership, student ambassador work, technical documentation.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="section">
             <div class="container">
-                <div class="section-header" data-gsap="fade-up">
-                    <span class="section-tag">03. Showcase</span>
-                    <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+                <div class="section-heading">
+                    <p class="section-kicker">Selected Work</p>
+                    <h2>Projects built around real hardware problems.</h2>
                 </div>
-                <div class="projects-container">
-                    <!-- Project 1 -->
-                    <div class="project-item" data-gsap="fade-up">
-                        <div class="project-info">
-                            <h3 class="project-name">IoT Asset Tracker</h3>
-                            <p class="project-desc">Real-time GPS tracking system using ESP32 and MQTT, featuring a custom web dashboard for visualization.</p>
-                            <div class="project-tech">
-                                <span>ESP32</span><span>MQTT</span><span>GPS</span><span>Cloud</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" class="project-link"><i class="fa-solid fa-external-link"></i></a>
+                <div class="projects-grid">
+                    <article class="project-card featured">
+                        <div class="project-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <p class="project-label">Featured Project</p>
+                            <h3>IoT-Enabled Asset Tracking System</h3>
+                            <p>
+                                ESP32-based GPS tracking system with MQTT data transfer and a cloud
+                                dashboard for live location monitoring and reduced location error.
+                            </p>
+                            <div class="tags">
+                                <span>ESP32</span>
+                                <span>GPS</span>
+                                <span>MQTT</span>
+                                <span>Cloud Dashboard</span>
                             </div>
                         </div>
-                        <div class="project-visual glass-card">
-                            <div class="visual-placeholder">IoT Mesh Visualization</div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
+                        <h3>Automated Robotics Arm Control</h3>
+                        <p>
+                            Motor control and sensor feedback implementation using Arduino for a
+                            multi-axis robotic arm prototype.
+                        </p>
+                        <div class="tags">
+                            <span>Arduino</span>
+                            <span>Motors</span>
+                            <span>Sensors</span>
                         </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <h3>Hardware Hackathon Build</h3>
+                        <p>
+                            College-level hackathon project focused on rapid prototyping, circuit
+                            design, testing, and presenting a functional hardware solution.
+                        </p>
+                        <div class="tags">
+                            <span>Prototype</span>
+                            <span>Hardware</span>
+                            <span>Team Build</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container credentials-layout">
+                <div class="section-heading">
+                    <p class="section-kicker">Credentials</p>
+                    <h2>Learning backed by certifications and leadership.</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span>Certification</span>
+                        <strong>Cisco Certified Network Associate: IoT Fundamentals</strong>
+                    </div>
+                    <div class="timeline-item">
+                        <span>Workshop</span>
+                        <strong>Embedded Systems Foundations and Arduino Programming</strong>
+                    </div>
+                    <div class="timeline-item">
+                        <span>Robotics</span>
+                        <strong>Advanced Robotics Bootcamp Participant</strong>
+                    </div>
+                    <div class="timeline-item">
+                        <span>Achievement</span>
+                        <strong>1st Place, College-level Hardware Hackathon</strong>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="section-header" data-gsap="fade-up">
-                    <span class="section-tag">04. Connection</span>
-                    <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
+        <section id="contact" class="section contact-section">
+            <div class="container contact-panel">
+                <div>
+                    <p class="section-kicker">Contact</p>
+                    <h2>Let us build something practical.</h2>
+                    <p>
+                        Open to internships, student ambassador roles, workshop opportunities,
+                        and embedded or IoT project collaborations.
+                    </p>
                 </div>
-                <div class="contact-grid">
-                    <div class="contact-info" data-gsap="fade-right">
-                        <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
-                        <div class="contact-methods">
-                            <a href="mailto:vvce25eee0016@vvce.ac.in" class="contact-item">
-                                <i class="fa-solid fa-envelope"></i>
-                                <span>vvce25eee0016@vvce.ac.in</span>
-                            </a>
-                            <a href="tel:+918792731742" class="contact-item">
-                                <i class="fa-solid fa-phone"></i>
-                                <span>+91 8792731742</span>
-                            </a>
-                        </div>
-                        <div class="social-links">
-                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#"><i class="fa-brands fa-github"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <form class="contact-form glass-card" data-gsap="fade-left">
-                        <div class="form-group">
-                            <input type="text" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-full">Send Message</button>
-                    </form>
+                <div class="contact-actions">
+                    <a href="mailto:vvce25eee0016@vvce.ac.in" class="contact-link">
+                        <i class="fa-solid fa-envelope"></i>
+                        vvce25eee0016@vvce.ac.in
+                    </a>
+                    <a href="tel:+918792731742" class="contact-link">
+                        <i class="fa-solid fa-phone"></i>
+                        +91 8792731742
+                    </a>
+                    <a href="https://www.linkedin.com/in/yashwanth-r-iot" class="contact-link">
+                        <i class="fa-brands fa-linkedin"></i>
+                        linkedin.com/in/yashwanth-r-iot
+                    </a>
+                    <a href="https://github.com/yashwanth-r-embedded" class="contact-link">
+                        <i class="fa-brands fa-github"></i>
+                        github.com/yashwanth-r-embedded
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="container">
-        <div class="footer-content">
-            <p>&copy; 2026 Yashwanth R. Built with precision.</p>
-            <div class="footer-status">
-                <span class="status-dot"></span> Online and Ready
-            </div>
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Yashwanth R. Portfolio.</p>
+            <a href="#hero">Back to top</a>
         </div>
     </footer>
 
-    <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-
-    <!-- Custom Scripts -->
-    <script src="js/three-bg.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
