@@ -82,3 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
     backImg.dispatchEvent(new Event('error'));
   }
 });
+
+// Allow user to pick a local image to use as the back face without saving to disk
+document.addEventListener('DOMContentLoaded', () => {
+  const fileInput = document.getElementById('profile-back-input');
+  const uploadBtn = document.querySelector('.image-upload-btn');
+  const backImg = document.querySelector('.profile-back-image');
+  let currentObjectUrl = null;
+  if (!fileInput || !uploadBtn || !backImg) return;
+
+  uploadBtn.addEventListener('click', () => fileInput.click());
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    if (currentObjectUrl) {
+      URL.revokeObjectURL(currentObjectUrl);
+      currentObjectUrl = null;
+    }
+    const url = URL.createObjectURL(file);
+    currentObjectUrl = url;
+    backImg.src = url;
+  });
+});
