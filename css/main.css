@@ -63,12 +63,23 @@ a {
     position: sticky;
     top: 0;
     z-index: 20;
-    border-bottom: 1px solid rgba(217, 226, 236, 0.8);
-    background: rgba(245, 247, 251, 0.86);
-    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: saturate(200%) blur(32px);
+    box-shadow: 0 32px 80px rgba(15, 23, 42, 0.08);
+}
+
+#main-nav::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 46%);
+    opacity: 0.72;
 }
 
 .nav-container {
+    position: relative;
     width: min(1120px, calc(100% - 40px));
     min-height: 76px;
     margin: 0 auto;
@@ -107,19 +118,29 @@ a {
 
 .nav-links a {
     color: var(--muted);
+    transition: color 180ms ease, text-shadow 180ms ease;
 }
 
 .nav-links a:hover,
 .footer-content a:hover {
     color: var(--brand);
+    text-shadow: 0 0 20px rgba(15, 118, 110, 0.2);
 }
 
 .nav-cta {
     padding: 10px 16px;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: var(--radius);
-    background: var(--surface);
+    background: rgba(255, 255, 255, 0.18);
     color: var(--brand-dark);
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    backdrop-filter: blur(16px);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 14px 30px rgba(15, 118, 110, 0.16);
 }
 
 .hero-section {
