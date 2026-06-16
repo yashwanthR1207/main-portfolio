@@ -51,3 +51,34 @@ tiltCards.forEach((card) => {
   card.addEventListener('pointerleave', () => resetTilt(card));
   card.addEventListener('pointercancel', () => resetTilt(card));
 });
+
+// Fallback for back-face image: if assets/cat.jpg is missing, use an embedded SVG placeholder
+document.addEventListener('DOMContentLoaded', () => {
+  const backImg = document.querySelector('.profile-back-image');
+  if (!backImg) return;
+
+  const catSvg = `
+  <svg xmlns='http://www.w3.org/2000/svg' width='800' height='1000' viewBox='0 0 800 1000'>
+    <rect width='100%' height='100%' fill='rgba(12,17,33,0.45)' />
+    <g transform='translate(200 180) scale(0.7)'>
+      <ellipse cx='200' cy='360' rx='190' ry='220' fill='#d6c7b6' />
+      <circle cx='140' cy='300' r='30' fill='#111827' />
+      <circle cx='260' cy='300' r='30' fill='#111827' />
+      <path d='M160 380 Q200 430 240 380' stroke='#b85' stroke-width='8' fill='none' stroke-linecap='round'/>
+      <path d='M60 200 C40 120 120 80 160 140' fill='#d6c7b6' />
+      <path d='M340 200 C360 120 280 80 240 140' fill='#d6c7b6' />
+    </g>
+  </svg>`;
+
+  const svgDataUrl = 'data:image/svg+xml;utf8,' + encodeURIComponent(catSvg);
+
+  // If the image fails to load, swap in the SVG data URL
+  backImg.addEventListener('error', () => {
+    backImg.src = svgDataUrl;
+  });
+
+  // If the image is already broken (cached), trigger the error handler
+  if (!backImg.complete || backImg.naturalWidth === 0) {
+    backImg.dispatchEvent(new Event('error'));
+  }
+});
