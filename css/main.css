@@ -374,11 +374,23 @@ h1 {
 .profile-image-wrap {
     overflow: hidden;
     position: relative;
-    border: 12px solid var(--surface);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    background: var(--surface-muted);
+    border: 12px solid rgba(255, 255, 255, 0.3);
+    border-radius: 28px;
+    box-shadow: 0 34px 72px rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
     animation: floatImage 6s ease-in-out infinite;
+}
+
+.profile-image-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: url('assets/profile.jpg') center/cover no-repeat;
+    filter: blur(24px) saturate(140%);
+    opacity: 0.22;
+    transform: scale(1.08);
 }
 
 .profile-image-wrap::after {
@@ -392,16 +404,92 @@ h1 {
     animation: shimmer 3.8s ease-in-out infinite;
 }
 
-.profile-image {
+.flip-card {
+    position: relative;
     width: 100%;
     aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center 30%;
-    transition: transform 450ms ease;
+    perspective: 1200px;
 }
 
-.profile-image-wrap:hover .profile-image {
-    transform: scale(1.04) translateY(-2px);
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    z-index: 2;
+}
+
+.profile-image-wrap:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    transform: rotateY(0deg);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    display: grid;
+    place-items: center;
+    background: linear-gradient(140deg, rgba(16, 185, 129, 0.22), rgba(14, 165, 233, 0.12));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(14px);
+}
+
+.flip-card-back::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.24), transparent 24%), radial-gradient(circle at 70% 70%, rgba(94, 234, 212, 0.14), transparent 32%);
+    opacity: 0.9;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+}
+
+.profile-back-image {
+    display: none;
+}
+
+.back-copy {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 24px;
+    color: #ffffff;
+    text-align: center;
+    z-index: 2;
+}
+
+.back-copy p {
+    color: rgba(255, 255, 255, 0.78);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.back-copy strong {
+    font-size: 1.35rem;
+    line-height: 1.1;
 }
 
 .profile-card {
