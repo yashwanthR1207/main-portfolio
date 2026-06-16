@@ -46,10 +46,25 @@ if (heroSection) {
   });
 }
 
+// Detect touch devices and adapt interactions for mobile
+const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+
 tiltCards.forEach((card) => {
-  card.addEventListener('pointermove', handleTilt);
-  card.addEventListener('pointerleave', () => resetTilt(card));
-  card.addEventListener('pointercancel', () => resetTilt(card));
+  if (!isTouchDevice) {
+    card.addEventListener('pointermove', handleTilt);
+    card.addEventListener('pointerleave', () => resetTilt(card));
+    card.addEventListener('pointercancel', () => resetTilt(card));
+  } else {
+    // For touch devices, enable tap-to-flip using the inner .flip-card-inner element
+    const inner = card.querySelector('.flip-card-inner');
+    if (inner) {
+      card.addEventListener('click', (e) => {
+        // Allow clicks on the upload button and links to pass through
+        if (e.target.closest('.image-upload-btn') || e.target.closest('a')) return;
+        inner.classList.toggle('flipped');
+      });
+    }
+  }
 });
 
 // Fallback for back-face image: if assets/cat.jpg is missing, use an embedded SVG placeholder
@@ -103,5 +118,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = URL.createObjectURL(file);
     currentObjectUrl = url;
     backImg.src = url;
+  });
+});
+
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('main-nav');
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelectorAll('.nav-links a');
+  if (!nav || !toggle) return;
+
+  function setOpen(open) {
+    nav.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!nav.classList.contains('nav-open'));
+  });
+
+  // Close when clicking a link
+  links.forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!nav.classList.contains('nav-open')) return;
+    if (!nav.contains(e.target)) setOpen(false);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
   });
 });

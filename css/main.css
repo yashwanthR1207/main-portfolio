@@ -108,6 +108,47 @@ a {
     align-items: center;
 }
 
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 220ms ease, opacity 220ms ease;
+}
+.hamburger::before,
+.hamburger::after {
+    position: relative;
+}
+.hamburger::before { transform: translateY(-6px); }
+.hamburger::after { transform: translateY(4px); }
+
+/* Open state */
+#main-nav.nav-open .hamburger {
+    background: transparent;
+}
+#main-nav.nav-open .hamburger::before {
+    transform: translateY(0) rotate(45deg);
+}
+#main-nav.nav-open .hamburger::after {
+    transform: translateY(0) rotate(-45deg);
+}
+
 .nav-links a,
 .nav-cta,
 .footer-content a {
@@ -446,7 +487,15 @@ h1 {
     z-index: 2;
 }
 
-.profile-image-wrap:hover .flip-card-inner {
+/* Hover flip only for pointer-capable devices; touch will use JS toggle */
+@media (hover: hover) {
+  .profile-image-wrap:hover .flip-card-inner {
+      transform: rotateY(180deg);
+  }
+}
+
+/* Class to force flipped state (used on touch) */
+.flip-card-inner.flipped {
     transform: rotateY(180deg);
 }
 
@@ -536,6 +585,52 @@ h1 {
     position: relative;
     padding: 22px;
     box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+    .nav-cta {
+        padding: 12px 18px;
+        font-size: 1rem;
+        min-height: 56px;
+        border-radius: 12px;
+    }
+
+    .hero-section {
+        padding: 36px 0 48px;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 9vw, 3.2rem);
+        line-height: 1.08;
+    }
+
+    .hero-description {
+        font-size: 0.98rem;
+    }
+
+    .profile-card {
+        margin-top: -42px;
+        width: calc(100% - 24px);
+        padding: 18px;
+    }
+
+    .flip-card {
+        aspect-ratio: 3 / 4;
+    }
+
+    .image-upload-btn {
+        top: 8px;
+        right: 8px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn {
+        min-height: 56px;
+        padding: 0 18px;
+        font-size: 1rem;
+    }
 }
 
 .profile-card h2 {
@@ -893,7 +988,24 @@ footer {
 
     .nav-links {
         display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(16px);
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 12px;
+        border-bottom: 1px solid rgba(217,226,236,0.06);
+        z-index: 30;
     }
+
+    #main-nav.nav-open .nav-links {
+        display: flex;
+    }
+
+    .nav-toggle { display: grid; }
 
     .hero-section {
         padding: 44px 0 64px;
