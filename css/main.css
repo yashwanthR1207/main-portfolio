@@ -352,10 +352,23 @@ h1 {
 
 .profile-image-wrap {
     overflow: hidden;
+    position: relative;
     border: 12px solid var(--surface);
     border-radius: 8px;
     box-shadow: var(--shadow);
     background: var(--surface-muted);
+    animation: floatImage 6s ease-in-out infinite;
+}
+
+.profile-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.38), transparent 30%);
+    opacity: 0.8;
+    mix-blend-mode: screen;
+    animation: shimmer 3.8s ease-in-out infinite;
 }
 
 .profile-image {
@@ -363,6 +376,11 @@ h1 {
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center 30%;
+    transition: transform 450ms ease;
+}
+
+.profile-image-wrap:hover .profile-image {
+    transform: scale(1.04) translateY(-2px);
 }
 
 .profile-card {
@@ -690,6 +708,29 @@ footer {
     }
     50% {
         transform: translateY(-4px);
+    }
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    45% {
+        transform: translateY(-6px);
+    }
+    85% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translateX(-20%);
+    }
+    50% {
+        opacity: 0.35;
+        transform: translateX(20%);
     }
 }
 
