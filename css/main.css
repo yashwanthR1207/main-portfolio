@@ -278,8 +278,9 @@ h3 {
 h1 {
     max-width: 780px;
     margin-top: 16px;
-    font-size: clamp(3rem, 7vw, 5.7rem);
+    font-size: clamp(1.8rem, 6vw, 3.2rem);
     font-weight: 800;
+    color: #000;
 }
 
 .hero-description {
@@ -601,8 +602,9 @@ h1 {
     }
 
     h1 {
-        font-size: clamp(2rem, 9vw, 3.2rem);
+        font-size: clamp(1.6rem, 7.5vw, 2.6rem);
         line-height: 1.08;
+        color: #000;
     }
 
     .hero-description {
