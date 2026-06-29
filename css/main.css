@@ -961,41 +961,107 @@ h1 {
     border: 1px solid var(--line);
 }
 
+.contact-card {
+    display: grid;
+    gap: 26px;
+}
+
+.contact-card-top {
+    display: grid;
+    gap: 18px;
+}
+
+.contact-card-bottom {
+    display: grid;
+    gap: 14px;
+}
+
+.contact-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contact-highlights span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.08);
+    color: var(--brand-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
 .contact-panel .section-kicker {
-    color: #5eead4;
+    color: var(--brand);
 }
 
 .contact-panel p {
     margin-top: 16px;
-    color: #c7d2de;
+    color: var(--muted);
 }
 
-.contact-actions {
+.contact-card-bottom {
     display: grid;
-    gap: 12px;
+    gap: 16px;
 }
 
 .contact-link {
-    min-height: 52px;
-    display: flex;
+    min-height: 62px;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius);
-    background: rgba(255,255,255,0.1);
-    color: #ffffff;
+    gap: 14px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: calc(var(--radius) * 1.2);
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--ink);
     font-weight: 700;
     text-decoration: none;
     overflow-wrap: anywhere;
-}
-
-.contact-link i {
-    color: #5eead4;
+    box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .contact-link:hover {
-    background: rgba(255, 255, 255, 0.11);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 24px 40px rgba(15, 23, 42, 0.12);
+}
+
+.logo-wrap {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(245,245,245,0.88));
+    border: 1px solid rgba(217, 226, 236, 0.9);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 10px 22px rgba(15, 23, 42, 0.08);
+    animation: badgeGlow 3.4s ease-in-out infinite;
+}
+
+.social-badge.email-badge .logo-wrap {
+    background: linear-gradient(135deg, #f59e0b, #fb923c);
+    color: #ffffff;
+}
+
+.social-badge.linkedin-badge .logo-wrap {
+    background: linear-gradient(135deg, #0a66c2, #1d4ed8);
+    color: #ffffff;
+}
+
+.social-badge.github-badge .logo-wrap {
+    background: linear-gradient(135deg, #111827, #4b5563);
+    color: #ffffff;
+}
+
+@keyframes badgeGlow {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-1px) scale(1.02); }
 }
 
 footer {
