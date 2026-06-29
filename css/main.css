@@ -965,20 +965,22 @@ h1 {
 
 .contact-avatar-panel {
     display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 26px;
+    grid-template-columns: 1fr 130px;
+    gap: 20px;
     align-items: center;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
 .contact-avatar-frame {
     position: relative;
-    width: 160px;
-    min-height: 160px;
-    border-radius: 32px;
+    width: 130px;
+    min-height: 130px;
+    border-radius: 28px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.42);
-    box-shadow: 0 28px 50px rgba(15, 23, 42, 0.12);
-    background: rgba(255,255,255,0.3);
+    box-shadow: 0 24px 40px rgba(15, 23, 42, 0.12);
+    background: rgba(255,255,255,0.4);
     backdrop-filter: blur(16px);
 }
 
@@ -1118,6 +1120,20 @@ footer {
     .credentials-layout,
     .contact-panel {
         grid-template-columns: 1fr;
+    }
+
+    .contact-avatar-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-avatar-frame {
+        width: 120px;
+        min-height: 120px;
+        margin: 0 auto;
+    }
+
+    .contact-card-bottom {
+        gap: 12px;
     }
 
     .skills-grid {
