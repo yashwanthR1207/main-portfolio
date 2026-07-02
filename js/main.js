@@ -204,14 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const likeCountEl = document.getElementById('portfolio-like-count');
   if (!likeBtn || !likeIcon || !likeCountEl) return;
 
-  // Since it's a static site, we'll simulate a server count by adding the local like to a base number
-  const BASE_LIKES = 124;
+  const API_URL = 'https://api.counterapi.dev/v1/yashwanthR1207/portfolio_likes';
   
-  // Check if user has liked before using localStorage
   let hasLiked = localStorage.getItem('portfolio_liked') === 'true';
+  let isFetching = false;
+  let currentCount = 0;
   
   function updateUI() {
-    likeCountEl.textContent = hasLiked ? BASE_LIKES + 1 : BASE_LIKES;
+    likeCountEl.textContent = currentCount;
     if (hasLiked) {
       likeBtn.classList.add('liked');
       likeIcon.classList.remove('fa-regular');
@@ -223,19 +223,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initial UI state
-  updateUI();
+  // Fetch initial count
+  fetch(API_URL)
+    .then(res => res.json())
+    .then(data => {
+      currentCount = data.count || 0;
+      updateUI();
+    })
+    .catch(err => console.error('Failed to fetch like count:', err));
+
+  // Set initial UI for cached 'hasLiked' state
+  updateUI(); 
 
   likeBtn.addEventListener('click', () => {
+    if (isFetching) return;
+    
+    // Optimistic UI update
     hasLiked = !hasLiked;
     localStorage.setItem('portfolio_liked', hasLiked);
+    currentCount = hasLiked ? currentCount + 1 : Math.max(0, currentCount - 1);
+    updateUI();
     
     // Add animation class
     likeBtn.classList.remove('animate-heart');
-    // trigger reflow
     void likeBtn.offsetWidth;
     likeBtn.classList.add('animate-heart');
     
-    updateUI();
+    isFetching = true;
+    const action = hasLiked ? 'up' : 'down';
+    
+    fetch(`${API_URL}/${action}`)
+      .then(res => res.json())
+      .then(data => {
+        currentCount = data.count || currentCount;
+        updateUI();
+      })
+      .catch(err => {
+        console.error('Failed to update like count:', err);
+        // Revert optimistic update on failure
+        hasLiked = !hasLiked;
+        localStorage.setItem('portfolio_liked', hasLiked);
+        currentCount = hasLiked ? currentCount + 1 : Math.max(0, currentCount - 1);
+        updateUI();
+      })
+      .finally(() => {
+        isFetching = false;
+      });
   });
 });
