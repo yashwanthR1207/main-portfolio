@@ -196,3 +196,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') setOpen(false);
   });
 });
+
+// Like Button Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const likeBtn = document.getElementById('portfolio-like-btn');
+  const likeIcon = document.getElementById('portfolio-like-icon');
+  const likeCountEl = document.getElementById('portfolio-like-count');
+  if (!likeBtn || !likeIcon || !likeCountEl) return;
+
+  // Since it's a static site, we'll simulate a server count by adding the local like to a base number
+  const BASE_LIKES = 124;
+  
+  // Check if user has liked before using localStorage
+  let hasLiked = localStorage.getItem('portfolio_liked') === 'true';
+  
+  function updateUI() {
+    likeCountEl.textContent = hasLiked ? BASE_LIKES + 1 : BASE_LIKES;
+    if (hasLiked) {
+      likeBtn.classList.add('liked');
+      likeIcon.classList.remove('fa-regular');
+      likeIcon.classList.add('fa-solid');
+    } else {
+      likeBtn.classList.remove('liked');
+      likeIcon.classList.remove('fa-solid');
+      likeIcon.classList.add('fa-regular');
+    }
+  }
+
+  // Initial UI state
+  updateUI();
+
+  likeBtn.addEventListener('click', () => {
+    hasLiked = !hasLiked;
+    localStorage.setItem('portfolio_liked', hasLiked);
+    
+    // Add animation class
+    likeBtn.classList.remove('animate-heart');
+    // trigger reflow
+    void likeBtn.offsetWidth;
+    likeBtn.classList.add('animate-heart');
+    
+    updateUI();
+  });
+});
