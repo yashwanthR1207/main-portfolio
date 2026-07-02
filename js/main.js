@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!likeBtn || !likeIcon || !likeCountEl) return;
 
   const API_URL = 'https://api.counterapi.dev/v1/yashwanthR1207/portfolio_likes';
+  const API_GET_URL = `${API_URL}/`;
   
   let hasLiked = localStorage.getItem('portfolio_liked') === 'true';
   let isFetching = false;
@@ -224,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Fetch initial count
-  fetch(API_URL)
+  fetch(API_GET_URL)
     .then(res => res.json())
     .then(data => {
       currentCount = data.count || 0;
